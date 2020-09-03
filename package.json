@@ -1,0 +1,37 @@
+{
+  "name": "sigenor",
+  "version": "1.0.0",
+  "description": "SIstema para la GEstion de NOtas basadas en Rubricas",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js",
+    "prueba": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samava1410/SIGENOR.git"
+  },
+  "keywords": [
+    "Notas",
+    "Rubricas",
+    "Universidades",
+    "Docentes",
+    "Gestion",
+    "WebApp"
+  ],
+  "author": "Jose Manuel Cordoba Sandoval - Santiago Mariño Vasquez - Holman Orlando Ricaurte Rey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samava1410/SIGENOR/issues"
+  },
+  "homepage": "https://github.com/samava1410/SIGENOR#readme"
+}
