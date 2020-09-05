@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const schemaDocente = new Schema({
-    codigoDocente: {
+const schemaEstudiante = new Schema({
+    codigoEstudiante: {
         type: String,
-        required: "El codigo del docente es obligatorio",
-        match: [/^[0-9]*$/, "El codigo del docente no puede tener caracteres alfabeticos"]
+        required: "El codigo del estudiante es obligatorio",
+        match: [/^[0-9]*$/, "El codigo del estudiante no puede tener caracteres alfabeticos"]
     },
 
     nombres: {
         type: String,
-        required: "Los nombres del docente son obligatorios",
+        required: "Los nombres del Estudiante son obligatorios",
         match: [/^\b(?!.*?\s{2})[A-Za-z ]{1,50}\b$/, "Los nombres solo pueden tener caracteres alfabeticos"]
     },
 
     apellidos: {
         type: String,
-        required: "Los apellidos del docente son obligatorios",
+        required: "Los apellidos del Estudiante son obligatorios",
         match: [/^\b(?!.*?\s{2})[A-Za-z ]{1,50}\b$/, "Los apellidos solo pueden tener caracteres alfabeticos"]
     },
 
@@ -28,4 +28,4 @@ const schemaDocente = new Schema({
 
 });
 
-module.exports = mongoose.model('docente', schemaDocente);
+module.exports = mongoose.model('estudiante', schemaEstudiante);

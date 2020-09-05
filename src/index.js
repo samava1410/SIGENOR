@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const schemaDocente = require('./models/docente');
+const schemaEstudiante = require('./models/estudiante');
 
 //Conexion con la BD Mongo
 mongoose.connect('mongodb://localhost/SIGENOR', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -8,7 +9,7 @@ mongoose.connect('mongodb://localhost/SIGENOR', { useNewUrlParser: true, useUnif
 
 mongoose.set('useCreateIndex', true);
 
-function agregar() {
+function agregarDoc() {
     console.log("Vamos agregar dos docentes");
 
     docenteObj = {
@@ -32,7 +33,7 @@ function agregar() {
     docente.save();
 }
 
-function eliminarYMostrar() {
+function eliminarYMostrarDoc() {
 
     schemaDocente.find({}, function (err, docs) {
         console.log("Se agregaron " + docs.length + " docentes");
@@ -58,11 +59,19 @@ function eliminarYMostrar() {
           console.log("Se ha actualizado el docente con codigo 2015")      
       })
       .catch((err) => {
-        // manejar error
       });
 
 }
 
-agregar();
+//agregarDoc();
+//setTimeout(eliminarYMostrarDoc, 3000);
 
-setTimeout(eliminarYMostrar, 3000);
+estObj = {
+    codigoEstudiante: "2011",
+    nombres: "Santiago",
+    apellidos: "Medina A",
+    correo: "santiago@hotmail.com"
+};
+
+estudiante = new schemaEstudiante(estObj);
+estudiante.save();
