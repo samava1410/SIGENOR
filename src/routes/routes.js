@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.render('index', { "mensaje": "" });
 });
 
-router.post('/estudiante', (req, res) => {
+router.post('/estudianteAdd', (req, res) => {
     const estudiante = new schemaEstudiante(req.body);
     estudiante.save();
     res.redirect('/');
@@ -22,7 +22,7 @@ router.get('/estudiantePerfil', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: "2015" });
 
-    res.render('prueba2', { estudiante });
+    res.render('estudiantes', { estudiante });
 });
 
 router.get('/estudianteBuscar', async (req, res) => {
