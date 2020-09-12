@@ -32,4 +32,24 @@ router.get('/estudianteBuscar', async (req, res) => {
     res.render('prueba', { estudiante });
 });
 
+router.post('/estudianteEdits', async (req, res) => {
+    
+    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
+
+    await schemaMineral.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
+    res.redirect('/minerales');
+});
+
+router.get('/estudianteBuscar', async (req, res) => {
+    
+    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
+
+    res.render('prueba', { estudiante });
+});
+
+router.get('/estudianteDel', async (req, res) => {
+    await schemaMineral.deleteOne({ codigoEstudiante: req.body.codigoEstudiante });
+    res.redirect('/');
+});
+
 module.exports = router;
