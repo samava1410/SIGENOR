@@ -4,6 +4,7 @@ const router = express.Router();
 const schemaEstudiante = require('../models/estudiante');
 const schemaDocente = require('../models/estudiante');
 const schemaAsignatura = require('../models/asignatura');
+const schemaGrupo = require('../models/grupo');
 
 router.get('/', (req, res) => {
     res.render('index', { "mensaje": "" });
@@ -33,12 +34,12 @@ router.post('/estudianteEdit', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
 
-    await schemaMineral.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
-    res.redirect('/minerales');
+    await schemaEstudiante.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
+    res.redirect('/estudiante');
 });
 
 router.get('/estudianteDelete', async (req, res) => {
-    await schemaMineral.deleteOne({ codigoEstudiante: req.body.codigoEstudiante });
+    await schemaEstudiante.deleteOne({ codigoEstudiante: req.body.codigoEstudiante });
     res.redirect('/');
 });
 
@@ -74,6 +75,44 @@ router.post('/asignaturaEdit', async (req, res) => {
 
 router.get('/AsignaturaDelete', async (req, res) => {
     await schemaAsignatura.deleteOne({ codigoAsignatura: req.body.codigoAsignatura });
+    res.redirect('/');
+});
+
+/*----------------RUTAS GRUPOS-----------------------*/
+
+router.post('/grupoAdd', (req, res) => {
+
+    //req.body.estudiante = estudiantes
+
+    const grupo = new schemaGrupo(req.body);
+    grupo.save();
+    res.redirect('/');
+});
+
+router.get('/grupo', async (req, res) => {
+    
+    const grupo = await schemaGrupo.findOne({ numGrupo: "60" });
+
+    res.render('grupo', { grupo });
+});
+
+router.get('/grupoSearch', async (req, res) => {
+    
+    const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
+
+    res.render('modificarGrupo', { grupo });
+});
+
+router.post('/grupoEdit', async (req, res) => {
+    
+    const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
+
+    await schemaGrupo.update({ numGrupo: req.body.numGrupo }, req.body);
+    res.redirect('/grupo');
+});
+
+router.get('/grupoDelete', async (req, res) => {
+    await schemaGrupo.deleteOne({ numGrupo: req.body.numGrupo });
     res.redirect('/');
 });
 
