@@ -103,9 +103,9 @@
 							Grupos
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroG">Crear Grupos</a>
+							<a class="dropdown-item" href="grupo#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarG">Modificar Grupos</a>
+							<a class="dropdown-item" href="grupo#modificarG">Modificar Grupos</a>
 						</div>
 					</li>
 
@@ -167,13 +167,15 @@
 
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante">
+									<input type="text" class="form-control" placeholder="Codigo Estudiante"
+									name="codigoAsignatura" required="Ingrese el codigo de la asignatura">
 								</div>
 							</div>
 							<br>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
+									<input type="text" class="form-control" placeholder="Nombres"
+									name="nombreAsignatura" required="Ingrese el nombre de la Asignatura">
 								</div>
 							</div>
 
@@ -224,7 +226,7 @@
 						<div class="col-3">
 						</div>
 						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+							<input class="form-control mr-sm-2" type="search" placeholder="Ingresar codigo asignatura" aria-label="Search">
 						</div>
 						<div class="col-2">
 							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
@@ -242,15 +244,19 @@
 							<div class="col-3">
 							</div>
 							<h3 class="col-mb-8	">Modificar Asignaturas</h3>
+							
 							<div class="col-md-10">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Asignatura">
+									<input type="text" class="form-control" placeholder="Codigo asignatura"
+									name="McodigoAsignatura">
 								</div>
+
 							</div>
 
 							<div class="col-md-10">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombre">
+									<input type="text" class="form-control" placeholder="Nombre"
+									name="MnombreAsignatura">
 								</div>
 
 							</div>
@@ -273,20 +279,6 @@
 	</section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 	<footer class="ftco-footer ftco-no-pb ftco-section">
 		<div class="container">

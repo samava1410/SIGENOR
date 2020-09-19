@@ -51,12 +51,9 @@
 	</div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-		<div class="container">
+		<div class="container" >
 			<li><a class="navbar-brand" href="#index">SIGENOR</a></li>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
+			
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 
@@ -103,9 +100,9 @@
 							Grupos
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroG">Crear Grupos</a>
+							<a class="dropdown-item" href="grupo#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarG">Modificar Grupos</a>
+							<a class="dropdown-item" href="grupo#modificarG">Modificar Grupos</a>
 						</div>
 					</li>
 
@@ -164,32 +161,38 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante">
+									<input type="text" class="form-control" placeholder="Codigo Estudiante"
+									name="codigoEstudiante" required="Ingrese el Codigo del estudiante">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
+									<input type="text" class="form-control" placeholder="Nombres"
+									name="nombres" required="Ingrese los nombres del estudiante ">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos">
+									<input type="text" class="form-control" placeholder="Apellidos"
+									name="apellidos" required="Ingrese los apellidos del estudiante">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email">
+									<input type="email" class="form-control" placeholder="Email"
+									name="correo" required="Ingrese el email del estudiante">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña">
+									<input type="password" class="form-control" placeholder="Contraseña"
+									name="contraseña" required="Debe ingresar la contraseña">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña">
+									<input type="password" class="form-control" placeholder="Repetir contraseña"
+									name="contraseña2" required="ingrese de nuevo la contraseña">
 								</div>
 							</div>
 
@@ -241,7 +244,7 @@
 						<div class="col-3">
 						</div>
 						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+							<input class="form-control mr-sm-2" type="search" placeholder="Ingrese codigo estudiante" aria-label="Search">
 						</div>
 						<div class="col-2">
 							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
@@ -257,38 +260,39 @@
 							<div class="col-3">
 							</div>
 							<h3 class="col-mb-8	">Modificar Estudiantes</h3>
-							<div class="col-md-10">
+							
+							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante">
+									<input type="text" class="form-control" placeholder="Nombres"
+									name="Mnombres" >
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Apellidos"
+									name="Mapellidos">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Email"
+									name="Mcorreo" >
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Contraseña"
+									name="Mcontraseña" >
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Repetir contraseña"
+									name="Mcontraseña2" >
 								</div>
 							</div>
 
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
-								</div>
-
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña">
-								</div>
-							</div>
+							
 
 							<div class="col-md-10">
 
