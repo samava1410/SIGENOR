@@ -27,7 +27,7 @@ router.get('/estudianteBuscar', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
 
-    res.render('prueba', { estudiante });
+    res.render('Admin-Estudiantes', { estudiante });
 });
 
 router.post('/estudianteEdit', async (req, res) => {
@@ -55,7 +55,7 @@ router.get('/asignatura', async (req, res) => {
     
     const asignatura = await schemaAsignatura.findOne({ codigoAsignatura: "8020" });
 
-    res.render('asignatura', { asignatura });
+    res.render('Admin-Asignatura', { asignatura });
 });
 
 router.get('/asignaturaSearch', async (req, res) => {
@@ -93,7 +93,7 @@ router.get('/grupo', async (req, res) => {
     
     const grupo = await schemaGrupo.findOne({ numGrupo: "60" });
 
-    res.render('grupo', { grupo });
+    res.render('Admin-grupos', { grupo });
 });
 
 router.get('/grupoSearch', async (req, res) => {
