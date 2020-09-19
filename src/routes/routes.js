@@ -20,7 +20,7 @@ router.get('/estudiantePerfil', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: "2015" });
 
-    res.render('estudiantes', { estudiante });
+    res.render('estudiantesPerfil', { estudiante });
 });
 
 router.get('/estudianteBuscar', async (req, res) => {
