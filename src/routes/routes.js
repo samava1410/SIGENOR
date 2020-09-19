@@ -6,6 +6,47 @@ const schemaDocente = require('../models/estudiante');
 const schemaAsignatura = require('../models/asignatura');
 const schemaGrupo = require('../models/grupo');
 
+/*RUTAS DOCENTE*/
+router.get('/', (req, res) => {
+    res.render('index');
+});
+
+router.post('/docenteAdd', (req, res) => {
+    const docente = new schemaDocente(req.body);
+    docente.save();
+    res.redirect('/');
+});
+
+router.get('/docentePerfil', async (req, res) => {
+    
+    const docente = await schemaDocente.findOne({ codigoDocente: "2011" });
+
+    res.render('docentePerfil', { docente });
+});
+
+router.get('/docenteBuscar', async (req, res) => {
+    
+    const docente = await schemaDocente.findOne({ codigoDocente: req.body.codigoDocente });
+
+    res.render('Admin-Docente', { docente });
+});
+
+router.post('/docenteEdit', async (req, res) => {
+    
+    //const docente = await schemaDocente.findOne({ codigoDocente: req.body.codigoDocente });
+
+    await schemaDocente.update({ codigoDocente: req.body.codigoDocente }, req.body);
+    res.redirect('/');
+});
+
+router.get('/docenteDelete', async (req, res) => {
+    await schemaDocente.deleteOne({ codigoDocente: req.body.codigoDocente });
+    res.redirect('/');
+});
+
+
+
+/*ROUTAS ESTUDIANTE*/
 router.get('/', (req, res) => {
     res.render('index', { "mensaje": "" });
 });
