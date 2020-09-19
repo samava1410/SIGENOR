@@ -21,14 +21,14 @@ router.get('/docentePerfil', async (req, res) => {
     
     const docente = await schemaDocente.findOne({ codigoDocente: "2011" });
 
-    res.render('docentePerfil', { docente });
+    res.render('profesoresPerfil', { docente });
 });
 
 router.get('/docenteBuscar', async (req, res) => {
     
     const docente = await schemaDocente.findOne({ codigoDocente: req.body.codigoDocente });
 
-    res.render('Admin-Docente', { docente });
+    res.render('Admin-Docentes', { docente });
 });
 
 router.post('/docenteEdit', async (req, res) => {
@@ -41,7 +41,7 @@ router.post('/docenteEdit', async (req, res) => {
 
 router.get('/docenteDelete', async (req, res) => {
     await schemaDocente.deleteOne({ codigoDocente: req.body.codigoDocente });
-    res.redirect('/');
+    res.redirect('Admin-Mdocentes');
 });
 
 
@@ -68,7 +68,7 @@ router.get('/estudianteBuscar', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
 
-    res.render('Admin-Estudiantes', { estudiante });
+    res.render('Admin-estudiantes', { estudiante });
 });
 
 router.post('/estudianteEdit', async (req, res) => {
@@ -76,7 +76,7 @@ router.post('/estudianteEdit', async (req, res) => {
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
 
     await schemaEstudiante.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
-    res.redirect('/estudiante');
+    res.redirect('/');
 });
 
 router.get('/estudianteDelete', async (req, res) => {
@@ -103,7 +103,7 @@ router.get('/asignaturaSearch', async (req, res) => {
     
     const asignatura = await schemaAsignatura.findOne({ codigoAsignatura: req.body.codigoAsignatura });
 
-    res.render('modificarAsig', { asignatura });
+    res.render('Admin-Masignatura', { asignatura });
 });
 
 router.post('/asignaturaEdit', async (req, res) => {
