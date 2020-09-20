@@ -21,7 +21,7 @@ router.get('/docentePerfil', async (req, res) => {
     
     const docente = await schemaDocente.findOne({ codigoDocente: "2011" });
 
-    res.render('profesoresPerfil', { docente });
+    res.render('profesores-mnota', { docente });
 });
 
 router.get('/docenteBuscar', async (req, res) => {
