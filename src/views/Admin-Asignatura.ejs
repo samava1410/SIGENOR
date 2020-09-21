@@ -67,9 +67,9 @@
 							Docentes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registro">Crear Docentes</a>
+							<a class="dropdown-item" href="docenteAdd#registro">Crear Docentes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificar">Modificar Docentes</a>
+							<a class="dropdown-item" href="docenteEdit#modificar">Modificar Docentes</a>
 						</div>
 					</li>
 
@@ -159,7 +159,7 @@
 		<div class="container">
 			<div class="row no-gutters">
 				<div class="col-sm-4 p-4 p-md-5 d-flex align-items-center justify-content-center bg-info">
-					<form action="#" class="appointment-form">
+					<form action="asignaturaAdd" class="appointment-form" method="POST">
 						<br>
 						<h3 class="mb-3">Registro Asignaturas</h3>
 						<br>
@@ -167,7 +167,7 @@
 
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante"
+									<input type="text" class="form-control" placeholder="Codigo Asignatura"
 									name="codigoAsignatura" required="Ingrese el codigo de la asignatura">
 								</div>
 							</div>
@@ -175,7 +175,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Nombres"
-									name="nombreAsignatura" required="Ingrese el nombre de la Asignatura">
+									name="nombreASignatura" required="Ingrese el nombre de la Asignatura">
 								</div>
 							</div>
 

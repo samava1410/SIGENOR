@@ -74,7 +74,7 @@
 	</nav>
 	<!-- END nav -->
 
-	
+
 
 
 
@@ -94,25 +94,31 @@
 									<br><br>
 									<div class="pl-lg-3 ml-md-5" style="text-align: center;">
 										<br>
+										<span class="subheading">Información</span>
+
 										<span class="subheading">Tú Perfil</span>
 									</div>
 								</div>
 								<div class="pl-lg-3 ml-md-5">
 									<div class="text-center">
 										<br>
-										<img src="/static/images/iconoPerfil.jpg" class="rounded .img-fluid. max-width: 100% height: auto;" alt="...">
-									  </div>
+										<img src="/static/images/iconoPerfil.jpg"
+											class="rounded .img-fluid. max-width: 100% height: auto;" alt="...">
+									</div>
 								</div>
 								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL NOMBRE</H1>
+									<H2 style="text-align: center;color: azure;"><%= estudiante.codigoEstudiante  %></H1>
 								</div>
 								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL APELLIDO</H1>
+									<H2 style="text-align: center;color: azure;"><%= estudiante.nombres  %></H1>
 								</div>
-								<BR>
 								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL CORREO</H1>
+									<H2 style="text-align: center;color: azure;"><%= estudiante.apellidos  %></H1>
 								</div>
+								<div class="pl-lg-3 ml-md-5">
+									<H2 style="text-align: center;color: azure;"><%= estudiante.correo  %></H1>
+								</div>
+
 
 							</div>
 							<div class="col-sm">
@@ -126,234 +132,7 @@
 	</section>
 
 
-	<!--<section id="modificar" class="ftco-section testimony-section" style="background-image: url(/static/images/modificar.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-center mb-3 pb-2">
-				<div class="container">
-					<div class="row">
-						<div class="col-3">
-						</div>
-						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-						</div>
-						<div class="col-2">
-							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="#" class="appointment-form">
-						<br>
-
-						<div class="row">
-							<div class="col-3">
-							</div>
-							<h3 class="col-mb-8	">Modificar Docentes</h3>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Docente">
-								</div>
-							</div>
-
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
-								</div>
-
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña">
-								</div>
-							</div>
-
-							<div class="col-md-10">
-
-								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-								<input type="submit" value="Eliminar" class="btn btn-white py-2 px-3">
-
-							</div>
-						</div>
-					</form>
-				</div>
-
-
-			</div>
-
-		</div>
-	</section>
-
-
-
-	<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt" id="registroE" >
-		<div class="container">
-			<div class="row no-gutters">
-				<div class="col-sm-4 p-4 p-md-5 d-flex align-items-center justify-content-center bg-dark">
-					<form action="#" class="appointment-form" >
-						<br>
-						<h3 class="mb-3">Registro Estudiantes</h3>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña">
-								</div>
-							</div>
-
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="submit" value="Registrar" class="btn btn-white py-3 px-4">
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-sm-8 wrap-about py-5 ftco-animate img" style="background-image: url(/static/images/estudiantes1.jpg);">
-					<div class="row pb-5 pb-md-0">
-						<div class="col-md-12 col-lg-7">
-							<div class="heading-section mt-5 mb-4">
-								<div class="pl-lg-3 ml-md-5">
-									<span class="subheading" style="color:#329CFF; size: 14px">Información Estudiantes</span>
-								</div>
-							</div>
-							<div class="pl-lg-3 ml-md-5">
-								<p >
-									<FONT size=4 COLOR="#69E5FF">
-										En esta sección podrá agregar usuarios estudiantes al llenar todos los datos y proceder a
-										dar click en el boton registrar.
-
-										Si desea modificar algún estudiante creado anteriormente dirijase a la sección
-										Estudiantes-Modificar.
-										
-									</FONT>
-
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="modificarE" class="ftco-section testimony-section" >
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-center mb-3 pb-2">
-				<div class="container">
-					<div class="row">
-						<div class="col-3">
-						</div>
-						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-						</div>
-						<div class="col-2">
-							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="#" class="appointment-form">
-						<br>
-
-						<div class="row">
-							<div class="col-3">
-							</div>
-							<h3 class="col-mb-8	">Modificar Estudiantes</h3>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo Estudiante">
-								</div>
-							</div>
-
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres">
-								</div>
-
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña">
-								</div>
-							</div>
-
-							<div class="col-md-10">
-
-								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-								<input type="submit" value="Eliminar" class="btn btn-white py-2 px-3">
-
-							</div>
-						</div>
-					</form>
-				</div>
-
-
-			</div>
-
-		</div>
-	</section>  -->
-
+	
 	<footer class="ftco-footer ftco-no-pb ftco-section">
 		<div class="container">
 			<div class="row mb-5">

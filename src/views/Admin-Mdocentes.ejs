@@ -67,7 +67,7 @@
 							Docentes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registro">Crear Docentes</a>
+							<a class="dropdown-item" href="docenteAdd#registro">Crear Docentes</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#modificar">Modificar Docentes</a>
 						</div>
@@ -159,72 +159,69 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
-				<div class="container">
-					<div class="row">
-						<div class="col-3">
+				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+					<form action="/docenteBuscar" class="appointment-form" method="POST">
+						<br>
+						<div class="row">
+							<div class="col-3">
+							</div>
+							<div class="col-4">
+								<input class="form-control mr-sm-2" type="search" placeholder="Ingresar código docente" aria-label="Search"
+								name="codigoDocente">
+							</div>
+							<div class="col-2">
+								<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
+
+							</div>
 						</div>
-						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Ingresar código docente" aria-label="Search"
-							name="buscar">
-						</div>
-						<div class="col-2">
-							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-						</div>
-					</div>
-				</div>
+						<br><br>
+					</form>
 
 
 
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="#" class="appointment-form">
-						<br>
+					<form action="/docenteEdit" class="appointment-form" method="POST">
+						
 
 						<div class="row">
 							<div class="col-3">
 							</div>
 							<h3 class="col-mb-8	">Modificar Docentes</h3>
 							
+							<input id="" name="codigoDocente" type="hidden" value="<%= docente.codigoDocente  %>">
+
 
 							<div class="col-md-10">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Nombres"
-									name="nombres">
+									name="nombres" value=" <%= docente.nombres  %> ">
 								</div>
 
 							</div>
 							<div class="col-md-10">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Apellidos"
-									name="apellidos">
+									name="apellidos" value=" <%= docente.apellidos  %> " >
 								</div>
 							</div>
 							<div class="col-md-10">
 								<div class="form-group">
 									<input type="email" class="form-control" placeholder="Email"
-									name="correo">
+									name="correo" value=" <%= docente.correo  %> ">
 								</div>
 							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña"
-									name="contraseña">
-								</div>
-							</div>
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña"
-									name="contraseña2">
-								</div>
-							</div>
+							
 
 							<div class="col-md-10">
 
 								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-								<input type="submit" value="Eliminar" class="btn btn-white py-2 px-3">
 
 							</div>
 						</div>
 					</form>
+					<br>
+					<a class="btn btn-primary" href="/docenteDelete/<%= docente.codigoDocente  %>" role="button">Eliminar</a>
+
 				</div>
 
 
