@@ -76,9 +76,9 @@
 							Estudiantes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroE">Crear Estudiantes</a>
+							<a class="dropdown-item" href="estudianteBuscar#registroE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarE">Modificar Estudiantes</a>
+							<a class="dropdown-item" href="estudianteBuscar#modificarE">Modificar Estudiantes</a>
 						</div>
 					</li>
 
@@ -157,21 +157,24 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
-				<div class="container">
+				<form action="/estudianteBuscar" class="appointment-form" method="POST">
+					<br>
 					<div class="row">
 						<div class="col-3">
 						</div>
 						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Ingrese codigo estudiante" aria-label="Search">
+							<input class="form-control mr-sm-2" type="search" placeholder="Ingrese codigo estudiante" aria-label="Search"
+							name="codigoEstudiante">
 						</div>
 						<div class="col-2">
-							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+							<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
+
 						</div>
 					</div>
-				</div>
+				</form>
 
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="#" class="appointment-form">
+					<form action="/estudianteEdit" class="appointment-form" method="POST">
 						<br>
 
 						<div class="row">
@@ -179,47 +182,39 @@
 							</div>
 							<h3 class="col-mb-8	">Modificar Estudiantes</h3>
 							
+							<input id="" name="codigoEstudiante" type="hidden" value="<%= estudiante.codigoEstudiante  %>">
+
+
 							<div class="col-md-12">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Nombres"
-									name="nombres" >
+									name="nombres" value="<%= estudiante.nombres  %> " >
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Apellidos"
-									name="apellidos">
+									name="apellidos" value="<%= estudiante.apellidos  %> " >
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<input type="email" class="form-control" placeholder="Email"
-									name="correo" >
+									name="correo" value="<%= estudiante.correo  %> " >
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Contraseña"
-									name="contraseña" >
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Repetir contraseña"
-									name="contraseña2" >
-								</div>
-							</div>
-
-							
+														
 
 							<div class="col-md-10">
 
 								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-								<input type="submit" value="Eliminar" class="btn btn-white py-2 px-3">
 
 							</div>
 						</div>
 					</form>
+					<br>
+					<a class="btn btn-primary" href="/estudianteDelete/<%= estudiante.codigoEstudiante  %>" role="button">Eliminar</a>
+
 				</div>
 
 

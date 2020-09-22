@@ -27,13 +27,14 @@ router.get('/docentePerfil', async (req, res) => {
     const docente = await schemaDocente.findOne({ codigoDocente: "212443" });
 
     res.render('profesoresPerfil', { docente });
+    
 });
 
 router.post('/docenteBuscar', async (req, res) => {
-    console.log(req.body.codigoDocente )
     const docente = await schemaDocente.findOne({ codigoDocente: req.body.codigoDocente });
 
     res.render('Admin-Mdocentes', { docente });
+
 });
 
 router.get('/docenteEdit', (req, res) => {
@@ -58,7 +59,7 @@ router.get('/docenteDelete/:id', async (req, res) => {
 
 /*ROUTAS ESTUDIANTE*/
 router.get('/', (req, res) => {
-    res.render('index', { "mensaje": "" });
+    res.render('index');
 });
 
 router.get('/estudianteAdd', (req, res) => {
@@ -68,7 +69,7 @@ router.get('/estudianteAdd', (req, res) => {
 router.post('/estudianteAdd', (req, res) => {
     const estudiante = new schemaEstudiante(req.body);
     estudiante.save();
-    res.redirect('/Admin-estudiantes#registroE');
+    res.redirect('/estudianteAdd#registroE');
 });
 
 router.get('/estudiantePerfil', async (req, res) => {
@@ -78,24 +79,33 @@ router.get('/estudiantePerfil', async (req, res) => {
     res.render('estudiantesPerfil', { estudiante });
 });
 
-router.get('/estudianteBuscar', async (req, res) => {
+router.post('/estudianteBuscar', async (req, res) => {
     
     const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
 
     res.render('Admin-Mestudiantes', { estudiante });
+
+    
+});
+
+router.get('/estudianteEdit', (req, res) => {
+    const estudiante={}
+    res.render('Admin-Mestudiantes',{estudiante});
 });
 
 router.post('/estudianteEdit', async (req, res) => {
-    
-    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });
+        
+/*    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: req.body.codigoEstudiante });*/
 
     await schemaEstudiante.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
-    res.redirect('/');
+    res.redirect('/estudianteEdit#modificarE');
 });
 
-router.get('/estudianteDelete', async (req, res) => {
-    await schemaEstudiante.deleteOne({ codigoEstudiante: req.body.codigoEstudiante });
-    res.redirect('/');
+
+
+router.get('/estudianteDelete/:id', async (req, res) => {
+    await schemaEstudiante.deleteOne({ codigoEstudiante: req.params.id });
+    res.redirect('/estudianteEdit#modificarE');
 });
 
 /*----------------RUTAS ASIGNAGTURA-----------------------*/
