@@ -117,7 +117,7 @@ router.get('/asignaturaAdd', (req, res) => {
 router.post('/asignaturaAdd', (req, res) => {
     const asignatura = new schemaAsignatura(req.body);
     asignatura.save();
-    res.redirect('/');
+    res.redirect('/asignaturaAdd#registroA');
 });
 
 router.get('/asignatura', async (req, res) => {
@@ -127,24 +127,31 @@ router.get('/asignatura', async (req, res) => {
     res.render('Admin-Asignatura', { asignatura });
 });
 
-router.get('/asignaturaSearch', async (req, res) => {
+router.post('/asignaturaSearch', async (req, res) => {
     
     const asignatura = await schemaAsignatura.findOne({ codigoAsignatura: req.body.codigoAsignatura });
 
     res.render('Admin-Masignatura', { asignatura });
 });
 
-router.post('/asignaturaEdit', async (req, res) => {
-    
-    const asignatura = await schemaAsignatura.findOne({ codigoAsignatura: req.body.codigoAsignatura });
 
-    await schemaAsignatura.update({ codigoAsignatura: req.body.codigoAsignatura }, req.body);
-    res.redirect('/asignatura');
+
+router.get('/asignaturaEdit', (req, res) => {
+    const asignatura={}
+    res.render('Admin-Masignatura',{asignatura});
 });
 
-router.get('/AsignaturaDelete', async (req, res) => {
-    await schemaAsignatura.deleteOne({ codigoAsignatura: req.body.codigoAsignatura });
-    res.redirect('/');
+router.post('/asignaturaEdit', async (req, res) => {
+    
+   /* const asignatura = await schemaAsignatura.findOne({ codigoAsignatura: req.body.codigoAsignatura });*/
+
+    await schemaAsignatura.update({ codigoAsignatura: req.body.codigoAsignatura }, req.body);
+    res.redirect('/asignaturaEdit#modificarA');
+});
+
+router.get('/AsignaturaDelete/:id', async (req, res) => {
+    await schemaAsignatura.deleteOne({ codigoAsignatura: req.params.id });
+    res.redirect('/asignaturaEdit#modificarA');
 });
 
 /*----------------RUTAS GRUPOS-----------------------*/

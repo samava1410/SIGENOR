@@ -51,9 +51,9 @@
 	</div>
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-		<div class="container" >
+		<div class="container">
 			<li><a class="navbar-brand" href="#index">SIGENOR</a></li>
-			
+
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 
@@ -76,9 +76,9 @@
 							Estudiantes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="estudianteBuscar#registroE">Crear Estudiantes</a>
+							<a class="dropdown-item" href="estudianteAdd#registroE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="estudianteBuscar#modificarE">Modificar Estudiantes</a>
+							<a class="dropdown-item" href="estudianteEdit#modificarE">Modificar Estudiantes</a>
 						</div>
 					</li>
 
@@ -88,9 +88,9 @@
 							Asignatura
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="asignatura#registroA">Crear Asignaturas</a>
+							<a class="dropdown-item" href="asignaturaAdd#registroA">Crear Asignaturas</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="asignatura#modificarA">Modificar Asignatura</a>
+							<a class="dropdown-item" href="asignaturaEdit#modificarA">Modificar Asignatura</a>
 						</div>
 					</li>
 
@@ -151,76 +151,100 @@
 
 
 
-	
+
 	<section id="modificarE" class="ftco-section testimony-section"
 		style="background-image: url(/static/images/ModificarE.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
-				<form action="/estudianteBuscar" class="appointment-form" method="POST">
-					<br>
-					<div class="row">
-						<div class="col-3">
-						</div>
-						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Ingrese codigo estudiante" aria-label="Search"
-							name="codigoEstudiante">
-						</div>
-						<div class="col-2">
-							<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
-
-						</div>
-					</div>
-				</form>
-
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="/estudianteEdit" class="appointment-form" method="POST">
+
+					<form action="/estudianteBuscar" class="appointment-form" method="POST">
 						<br>
-
 						<div class="row">
+							<div class="col-4">
+							</div>
 							<div class="col-3">
+								<input class="form-control mr-sm-2" type="search"
+									placeholder="Ingrese codigo estudiante" aria-label="Search" name="codigoEstudiante">
 							</div>
-							<h3 class="col-mb-8	">Modificar Estudiantes</h3>
-							
-							<input id="" name="codigoEstudiante" type="hidden" value="<%= estudiante.codigoEstudiante  %>">
-
-
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres"
-									name="nombres" value="<%= estudiante.nombres  %> " >
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos"
-									name="apellidos" value="<%= estudiante.apellidos  %> " >
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email"
-									name="correo" value="<%= estudiante.correo  %> " >
-								</div>
-							</div>
-														
-
-							<div class="col-md-10">
-
-								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
+							<div class="col-2">
+								<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
 
 							</div>
 						</div>
 					</form>
-					<br>
-					<a class="btn btn-primary" href="/estudianteDelete/<%= estudiante.codigoEstudiante  %>" role="button">Eliminar</a>
+
+					<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+						<form action="/estudianteEdit" class="appointment-form" method="POST">
+							<br>
+
+							<div class="row">
+								<div class="col-5">
+								</div>
+								<h3 class="col-mb-7	">Modificar Estudiantes</h3>
+
+								<input id="" name="codigoEstudiante" type="hidden"
+									value="<%= estudiante.codigoEstudiante  %>">
+
+
+								<div class="col-4">
+								</div>
+
+								<div class="col-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+											value="<%= estudiante.nombres  %> ">
+									</div>
+								</div>
+								<div class="col-2">
+								</div>
+
+								<div class="col-4">
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+											value="<%= estudiante.apellidos  %> ">
+									</div>
+								</div>
+								<div class="col-2">
+								</div>
+
+								<div class="col-4">
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="Email" name="correo"
+											value="<%= estudiante.correo  %> ">
+									</div>
+								</div>
+
+
+								<div class="col-2">
+								</div>
+								<div class="col-4">
+								</div>
+								<div class="col-3">
+									< <br>
+
+										<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
+
+								</div>
+						</form>
+						<br>
+						<div class="col-4">
+							<br>
+							<a class="btn btn-primary" href="/estudianteDelete/<%= estudiante.codigoEstudiante  %>"
+								role="button">Eliminar</a>
+						</div>
+
+					</div>
+
 
 				</div>
 
-
 			</div>
-
-		</div>
 	</section>
 
 

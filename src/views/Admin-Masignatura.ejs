@@ -79,9 +79,9 @@
 							Estudiantes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="estudianteBuscar#registroE">Crear Estudiantes</a>
+							<a class="dropdown-item" href="estudianteAdd#registroE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="estudianteBuscar#modificarE">Modificar Estudiantes</a>
+							<a class="dropdown-item" href="estudianteEdit#modificarE">Modificar Estudiantes</a>
 						</div>
 					</li>
 
@@ -91,7 +91,7 @@
 							Asignatura
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroA">Crear Asignaturas</a>
+							<a class="dropdown-item" href="asignaturaAdd#registroA">Crear Asignaturas</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#modificarA">Modificar Asignatura</a>
 						</div>
@@ -157,55 +157,61 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
-				<div class="container">
+				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+					<form action="/asignaturaSearch" class="appointment-form" method="POST">
+						<br>
 					<div class="row">
-						<div class="col-3">
-						</div>
 						<div class="col-4">
-							<input class="form-control mr-sm-2" type="search" placeholder="Ingresar codigo asignatura" aria-label="Search">
+						</div>
+						<div class="col-3">
+							<input class="form-control mr-sm-2" type="search" placeholder="Ingresar codigo asignatura" 
+							aria-label="Search" name="codigoAsignatura">
 						</div>
 						<div class="col-2">
-							<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+							<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
 						</div>
 					</div>
-				</div>
-
+					</form>
 
 
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="#" class="appointment-form">
+					<form action="/asignaturaEdit" class="appointment-form" method="POST">
 						<br>
 
 						<div class="row">
-							<div class="col-3">
+							<div class="col-5">
 							</div>
-							<h3 class="col-mb-8	">Modificar Asignaturas</h3>
+							<h3 class="col-mb-7" style="color: beige;">Modificar Asignaturas</h3>
+							<input id="" name="codigoAsignatura" type="hidden" value="<%= asignatura.codigoAsignatura  %>">
+
+							<div class="col-4">
+							</div>
+
 							
-							<div class="col-md-10">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Codigo asignatura"
-									name="codigoAsignatura">
-								</div>
-
-							</div>
-
-							<div class="col-md-10">
+							<div class="col-6">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Nombre"
-									name="nombreAsignatura">
+									name="nombreASignatura" value=" <%= asignatura.nombreASignatura  %> ">
 								</div>
 
 							</div>
+							<div class="col-2">
+							</div>
 
+							<div class="col-4">
+							</div>
 
-							<div class="col-md-10">
+							<div class="col-3">
 
 								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-								<input type="submit" value="Eliminar" class="btn btn-white py-2 px-3">
 
 							</div>
+						</form>
+						
+						<div class="col-4">
+							<a class="btn btn-primary" href="/AsignaturaDelete/<%= asignatura.codigoAsignatura  %>"
+								role="button">Eliminar</a>
 						</div>
-					</form>
 				</div>
 
 

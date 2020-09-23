@@ -79,7 +79,7 @@
 							Estudiantes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroE">Crear Estudiantes</a>
+							<a class="dropdown-item" href="estudianteAdd#registrarE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#modificarE">Modificar Estudiantes</a>
 						</div>
@@ -91,9 +91,9 @@
 							Asignatura
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroA">Crear Asignaturas</a>
+							<a class="dropdown-item" href="asignaturaAdd#registroA">Crear Asignaturas</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarA">Modificar Asignatura</a>
+							<a class="dropdown-item" href="asignaturaEdit#modificarA">Modificar Asignatura</a>
 						</div>
 					</li>
 
@@ -153,7 +153,7 @@
 
 
 
-	
+
 	<section id="modificar" class="ftco-section testimony-section"
 		style="background-image: url(/static/images/modificar.jpg);">
 		<div class="overlay"></div>
@@ -166,8 +166,8 @@
 							<div class="col-4">
 							</div>
 							<div class="col-3">
-								<input class="form-control mr-sm-2" type="search" placeholder="Ingresar código docente" aria-label="Search"
-								name="codigoDocente">
+								<input class="form-control mr-sm-2" type="search" placeholder="Ingresar código docente"
+									aria-label="Search" name="codigoDocente">
 							</div>
 							<div class="col-2">
 								<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
@@ -179,67 +179,68 @@
 
 
 
-				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-					<form action="/docenteEdit" class="appointment-form" method="POST">
-						
+					<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+						<form action="/docenteEdit" class="appointment-form" method="POST">
 
-						<div class="row">
-							<div class="col-5">
-							</div>
-							<h3 class="col-mb-7	">Modificar Docentes</h3>
-							<input id="" name="codigoDocente" type="hidden" value="<%= docente.codigoDocente  %>">
-						</div>
 
-						<div class="row">
-
-							<div class="col-4">
-							</div>
-							<div class="col-6">
-								<br>
-
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nombres"
-									name="nombres" value=" <%= docente.nombres  %> ">
+							<div class="row">
+								<div class="col-5">
 								</div>
-							</div>
-							<div class="col-2">
+								<h3 class="col-mb-7	">Modificar Docentes</h3>
+								<input id="" name="codigoDocente" type="hidden" value="<%= docente.codigoDocente  %>">
 							</div>
 
-							<div class="col-4">
-							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Apellidos"
-									name="apellidos" value=" <%= docente.apellidos  %> ">
+							<div class="row">
+
+								<div class="col-4">
 								</div>
-							</div>
-							<div class="col-2">
-							</div>
-							<div class="col-4">
-							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email"
-									name="correo" value=" <%= docente.correo  %> ">
+								<div class="col-6">
+									<br>
+
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+											value=" <%= docente.nombres  %> ">
+									</div>
 								</div>
-							</div>
-							
-							<div class="col-2">
-							</div>
-							<div class="col-4">
-							</div>
-							<div class="col-3">
-<							<br>
+								<div class="col-2">
+								</div>
 
-								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
+								<div class="col-4">
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+											value=" <%= docente.apellidos  %> ">
+									</div>
+								</div>
+								<div class="col-2">
+								</div>
+								<div class="col-4">
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="Email" name="correo"
+											value=" <%= docente.correo  %> ">
+									</div>
+								</div>
 
-							</div>
+								<div class="col-2">
+								</div>
+								<div class="col-4">
+								</div>
+								<div class="col-3">
+									 <br>
+
+										<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
+
+								</div>
 						</form>
 						<div class="col-4">
-<br>
-						<a class="btn btn-primary" href="/docenteDelete/<%= docente.codigoDocente  %>" role="button">Eliminar</a>
+							<br>
+							<a class="btn btn-primary" href="/docenteDelete/<%= docente.codigoDocente  %>"
+								role="button">Eliminar</a>
 						</div>
-						</div>						
+					</div>
 					<br>
 
 				</div>
@@ -250,7 +251,7 @@
 		</div>
 	</section>
 
-	
+
 
 
 	<footer class="ftco-footer ftco-no-pb ftco-section">
