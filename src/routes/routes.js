@@ -176,7 +176,7 @@ router.get('/grupoSearch', async (req, res) => {
     
     const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
 
-    res.render('modificarGrupo', { grupo });
+    res.render('profesores-Mrubrica', { grupo });
 });
 
 router.post('/grupoEdit', async (req, res) => {
