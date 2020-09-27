@@ -9,7 +9,7 @@ const docente = require('../models/docente');
 
 /*RUTAS DOCENTE*/
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('login');
 });
 
 router.get('/docenteAdd', (req, res) => {
