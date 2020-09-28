@@ -53,7 +53,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
 			<li><a class="navbar-brand" href="#index"><img src="/static/images/logo2.png">SIGENOR</a></li>
-
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 
@@ -90,7 +93,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="asignaturaAdd#registroA">Crear Asignaturas</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="asignaturaEdit#modificarA">Modificar Asignatura</a>
+							<a class="dropdown-item" href="#modificarA">Modificar Asignatura</a>
 						</div>
 					</li>
 
@@ -124,146 +127,84 @@
 					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 						<div class="col-md-12 ftco-animate">
 							<div class="text w-100 mt-5 text-center">
-								<h1>SIGENOR</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="slider-item js-fullheight" style="background-image:url(/static/images/SegundoFondo.jpg);">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-						<div class="col-md-12 ftco-animate">
-							<div class="text w-100 mt-5 text-center">
-								<h1>Evaluación por medio de rubricas</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-	<section id="modificarE" class="ftco-section testimony-section"
-		style="background-image: url(/static/images/ModificarE.jpg);">
+	<section id="modificarA" class="ftco-section testimony-section"
+		style="background-image: url(/static/images/ModificarA.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-
-					<form action="/estudianteBuscar" class="appointment-form" method="POST">
+					<form action="/asignaturaSearch" class="appointment-form" method="POST">
 						<br>
-						<div class="row">
-							<div class="col-4">
-							</div>
-							<div class="col-3">
-								<input class="form-control mr-sm-2" type="search"
-									placeholder="Ingrese codigo estudiante" aria-label="Search" name="codigoEstudiante">
-							</div>
-							<div class="col-2">
-								<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
-
-							</div>
+					<div class="row">
+						<div class="col-4">
 						</div>
+						<div class="col-3">
+							<input class="form-control mr-sm-2" type="search" placeholder="Ingresar codigo asignatura" 
+							aria-label="Search" name="codigoAsignatura">
+						</div>
+						<div class="col-2">
+							<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
+						</div>
+					</div>
 					</form>
 
-					<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-						<form action="/estudianteEdit" class="appointment-form" method="POST">
-							<br>
 
-							<div class="row">
-								<div class="col-5">
-								</div>
-								<h3 class="col-mb-7	">Modificar Estudiantes</h3>
-
-								<input id="" name="codigoEstudiante" type="hidden"
-									value="<%= estudiante.codigoEstudiante  %>">
-
-
-								<div class="col-4">
-								</div>
-
-								<div class="col-6">
-									<div class="form-group">
-										
-											<%if(! estudiante.nombres){%>
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													value=" <%= estudiante.nombres  %> ">
-												<%}%>	
-									</div>
-								</div>
-								<div class="col-2">
-								</div>
-
-								<div class="col-4">
-								</div>
-								<div class="col-6">
-									<div class="form-group">
-									
-
-											<%if(! estudiante.apellidos){%>
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													value=" <%= estudiante.apellidos  %> ">
-												<%}%>
-									</div>
-								</div>
-								<div class="col-2">
-								</div>
-
-								<div class="col-4">
-								</div>
-								<div class="col-6">
-									<div class="form-group">
-										<input type="email" class="form-control" placeholder="Email" name="correo"
-											value="<%= estudiante.correo  %> ">
-									</div>
-								</div>
-
-
-								<div class="col-2">
-								</div>
-								<div class="col-4">
-								</div>
-								<div class="col-3">
-									< <br>
-
-										<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
-
-								</div>
-						</form>
+				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+					<form action="/asignaturaEdit" class="appointment-form" method="POST">
 						<br>
+
+						<div class="row">
+							<div class="col-5">
+							</div>
+							<h3 class="col-mb-7" style="color: beige;">Modificar Asignaturas</h3>
+							<input id="" name="codigoAsignatura" type="hidden" value="<%= asignatura.codigoAsignatura  %>">
+
+							<div class="col-4">
+							</div>
+
+							
+							<div class="col-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Nombre"
+									name="nombreASignatura" value=" <%= asignatura.nombreASignatura  %> ">
+
+									<%if(! asignatura.nombreASignatura){%>
+										<input type="text" class="form-control" placeholder="nombreASignatura" name="nombreASignatura"
+											>	
+										<%}
+										else{%>
+
+										<input type="text" class="form-control" placeholder="nombreASignatura" name="nombreASignatura"
+											value=" <%= asignatura.nombreASignatura  %> ">
+										<%}%>
+								</div>
+
+							</div>
+							<div class="col-2">
+							</div>
+
+							<div class="col-4">
+							</div>
+
+							<div class="col-3">
+
+								<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
+
+							</div>
+						</form>
+						
 						<div class="col-4">
-							<br>
-							<a class="btn btn-primary" href="/estudianteDelete/<%= estudiante.codigoEstudiante  %>"
+							<a class="btn btn-primary" href="/AsignaturaDelete/<%= asignatura.codigoAsignatura  %>"
 								role="button">Eliminar</a>
 						</div>
-
-					</div>
-
-
 				</div>
 
-			</div>
-	</section>
 
+			</div>
+
+		</div>
+	</section>
 
 
 

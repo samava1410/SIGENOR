@@ -52,7 +52,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<li><a class="navbar-brand" href="#index">SIGENOR</a></li>
+			<li><a class="navbar-brand" href="#index"><img src="/static/images/logo2.png">SIGENOR</a></li>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
 				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
@@ -81,7 +81,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="estudianteAdd#registrarE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarE">Modificar Estudiantes</a>
+							<a class="dropdown-item" href="estudianteEdit#modificarE">Modificar Estudiantes</a>
 						</div>
 					</li>
 
@@ -198,8 +198,17 @@
 									<br>
 
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-											value=" <%= docente.nombres  %> ">
+																		
+
+											<%if(! docente.nombres){%>
+												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+													>	
+												<%}
+												else{%>
+		
+												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+													value=" <%= docente.nombres  %> ">
+												<%}%>		
 									</div>
 								</div>
 								<div class="col-2">
@@ -209,8 +218,15 @@
 								</div>
 								<div class="col-6">
 									<div class="form-group">
+										<%if(! docente.apellidos){%>
+										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+											>	
+										<%}
+										else{%>
+
 										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
 											value=" <%= docente.apellidos  %> ">
+										<%}%>
 									</div>
 								</div>
 								<div class="col-2">

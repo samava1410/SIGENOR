@@ -116,42 +116,6 @@
 	</nav>
 	<!-- END nav -->
 
-	<section class="hero-wrap" id="index">
-		<div class="home-slider owl-carousel js-fullheight">
-			<div class="slider-item js-fullheight" style="background-image:url(/static/images/PrimerFondo.jpg);">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-						<div class="col-md-12 ftco-animate">
-							<div class="text w-100 mt-5 text-center">
-								<h1>SIGENOR</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="slider-item js-fullheight" style="background-image:url(/static/images/SegundoFondo.jpg);">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-						<div class="col-md-12 ftco-animate">
-							<div class="text w-100 mt-5 text-center">
-								<h1>Evaluación por medio de rubricas</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
 	<section id="modificarE" class="ftco-section testimony-section"
 		style="background-image: url(/static/images/ModificarE.jpg);">
 		<div class="overlay"></div>
@@ -193,16 +157,8 @@
 
 								<div class="col-6">
 									<div class="form-group">
-										
-											<%if(! estudiante.nombres){%>
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													value=" <%= estudiante.nombres  %> ">
-												<%}%>	
+										<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+											value="<%= estudiante.nombres  %> ">
 									</div>
 								</div>
 								<div class="col-2">
@@ -212,17 +168,8 @@
 								</div>
 								<div class="col-6">
 									<div class="form-group">
-									
-
-											<%if(! estudiante.apellidos){%>
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													value=" <%= estudiante.apellidos  %> ">
-												<%}%>
+										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+											value="<%= estudiante.apellidos  %> ">
 									</div>
 								</div>
 								<div class="col-2">

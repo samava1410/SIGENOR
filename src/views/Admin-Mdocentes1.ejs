@@ -53,7 +53,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
 			<li><a class="navbar-brand" href="#index"><img src="/static/images/logo2.png">SIGENOR</a></li>
-
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 
@@ -66,7 +69,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="docenteAdd#registro">Crear Docentes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="docenteEdit#modificar">Modificar Docentes</a>
+							<a class="dropdown-item" href="#modificar">Modificar Docentes</a>
 						</div>
 					</li>
 
@@ -76,9 +79,9 @@
 							Estudiantes
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="estudianteAdd#registroE">Crear Estudiantes</a>
+							<a class="dropdown-item" href="estudianteAdd#registrarE">Crear Estudiantes</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="estudianteEdit#modificarE">Modificar Estudiantes</a>
+							<a class="dropdown-item" href="#modificarE">Modificar Estudiantes</a>
 						</div>
 					</li>
 
@@ -116,93 +119,52 @@
 	</nav>
 	<!-- END nav -->
 
-	<section class="hero-wrap" id="index">
-		<div class="home-slider owl-carousel js-fullheight">
-			<div class="slider-item js-fullheight" style="background-image:url(/static/images/PrimerFondo.jpg);">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-						<div class="col-md-12 ftco-animate">
-							<div class="text w-100 mt-5 text-center">
-								<h1>SIGENOR</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="slider-item js-fullheight" style="background-image:url(/static/images/SegundoFondo.jpg);">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-						<div class="col-md-12 ftco-animate">
-							<div class="text w-100 mt-5 text-center">
-								<h1>Evaluación por medio de rubricas</h1>
-								<span class="subheading-2">2020</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-	<section id="modificarE" class="ftco-section testimony-section"
-		style="background-image: url(/static/images/ModificarE.jpg);">
+	<section id="modificar" class="ftco-section testimony-section"
+		style="background-image: url(/static/images/modificar.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-2">
 				<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-
-					<form action="/estudianteBuscar" class="appointment-form" method="POST">
+					<form action="/docenteBuscar" class="appointment-form" method="POST">
 						<br>
 						<div class="row">
 							<div class="col-4">
 							</div>
 							<div class="col-3">
-								<input class="form-control mr-sm-2" type="search"
-									placeholder="Ingrese codigo estudiante" aria-label="Search" name="codigoEstudiante">
+								<input class="form-control mr-sm-2" type="search" placeholder="Ingresar código docente"
+									aria-label="Search" name="codigoDocente">
 							</div>
 							<div class="col-2">
 								<input type="submit" value="BUSCAR" class="btn btn-white py-2 px-3">
 
 							</div>
 						</div>
+						<br><br>
 					</form>
 
+
+
 					<div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-						<form action="/estudianteEdit" class="appointment-form" method="POST">
-							<br>
+						<form action="/docenteEdit" class="appointment-form" method="POST">
+
 
 							<div class="row">
 								<div class="col-5">
 								</div>
-								<h3 class="col-mb-7	">Modificar Estudiantes</h3>
+								<h3 class="col-mb-7	">Modificar Docentes</h3>
+								<input id="" name="codigoDocente" type="hidden" value="<%= docente.codigoDocente  %>">
+							</div>
 
-								<input id="" name="codigoEstudiante" type="hidden"
-									value="<%= estudiante.codigoEstudiante  %>">
-
+							<div class="row">
 
 								<div class="col-4">
 								</div>
-
 								<div class="col-6">
+									<br>
+
 									<div class="form-group">
-										
-											<%if(! estudiante.nombres){%>
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-													value=" <%= estudiante.nombres  %> ">
-												<%}%>	
+										<input type="text" class="form-control" placeholder="Nombres" name="nombres"
+											value=" <%= docente.nombres  %> ">
 									</div>
 								</div>
 								<div class="col-2">
@@ -212,56 +174,46 @@
 								</div>
 								<div class="col-6">
 									<div class="form-group">
-									
-
-											<%if(! estudiante.apellidos){%>
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													>	
-												<%}
-												else{%>
-		
-												<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
-													value=" <%= estudiante.apellidos  %> ">
-												<%}%>
+										<input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+											value=" <%= docente.apellidos  %> ">
 									</div>
 								</div>
 								<div class="col-2">
 								</div>
-
 								<div class="col-4">
 								</div>
 								<div class="col-6">
 									<div class="form-group">
 										<input type="email" class="form-control" placeholder="Email" name="correo"
-											value="<%= estudiante.correo  %> ">
+											value=" <%= docente.correo  %> ">
 									</div>
 								</div>
-
 
 								<div class="col-2">
 								</div>
 								<div class="col-4">
 								</div>
 								<div class="col-3">
-									< <br>
+									 <br>
 
 										<input type="submit" value="Actualizar" class="btn btn-white py-2 px-3">
 
 								</div>
 						</form>
-						<br>
 						<div class="col-4">
 							<br>
-							<a class="btn btn-primary" href="/estudianteDelete/<%= estudiante.codigoEstudiante  %>"
+							<a class="btn btn-primary" href="/docenteDelete/<%= docente.codigoDocente  %>"
 								role="button">Eliminar</a>
 						</div>
-
 					</div>
-
+					<br>
 
 				</div>
 
+
 			</div>
+
+		</div>
 	</section>
 
 
