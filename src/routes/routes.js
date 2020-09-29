@@ -24,7 +24,7 @@ router.post('/docenteAdd', (req, res) => {
 
 router.get('/docentePerfil', async (req, res) => {
     
-    const docente = await schemaDocente.findOne({ codigoDocente: "212443" });
+    const docente = await schemaDocente.findOne({ codigoDocente: "1" });
 
     res.render('profesoresPerfil', { docente });
     
@@ -63,7 +63,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/estudianteAdd', (req, res) => {
-    res.render('Admin-estudiantes');
+    const estudiante= {}
+
+    res.render('Admin-estudiantes',{estudiante,"mensaje": "" });
 });
 
 router.post('/estudianteAdd', (req, res) => {
@@ -74,7 +76,7 @@ router.post('/estudianteAdd', (req, res) => {
 
 router.get('/estudiantePerfil', async (req, res) => {
     
-    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: "102323" });
+    const estudiante = await schemaEstudiante.findOne({ codigoEstudiante: "1" });
 
     res.render('estudiantesPerfil', { estudiante });
 });
