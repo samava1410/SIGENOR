@@ -91,9 +91,9 @@
 							Asignatura
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroA">Crear Asignaturas</a>
+							<a class="dropdown-item" href="asignatura#registroA">Crear Asignaturas</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarA">Modificar Asignatura</a>
+							<a class="dropdown-item" href="asignatura#modificarA">Modificar Asignatura</a>
 						</div>
 					</li>
 
@@ -211,6 +211,43 @@
 										evaluación de las diferentes notas por medio de rubricas, estas son creadas con
 										mayor simplicidad para agilizar esta labor.</FONT>
 								</p>
+
+								<table class="table table-bordered" style="background-color:burlywood; color: darkblue" width="1200" align="center">
+									<thead>
+									  <tr>
+										<th>N°</th>
+										<th>codigo</th>
+										<th>Nombres</th>
+										<th>Apellidos</th>
+										<th>Email</th>
+									  </tr>
+									</thead>
+									<tbody>	
+										
+										<%if (mensaje == "") { %>
+											<% for(var i = 0; i < docente.length; i++){ %>
+											<tr>
+											  <td><%= i + 1 %></td>
+											  <td><%= docente[i].codigodocente %></td>
+											  <td><%= docente[i].nombres %></td>
+											  <td><%= docente[i].apellidos %></td>
+											  <td><%= docente[i].correo %></td>
+
+											</tr>
+											<% } %>
+											<% } else if(position == -1) { %>
+											<tr>
+												<td><%= i + 1 %></td>
+												<td><%= docente[i].codigoDocente %></td>
+												<td><%= docente[i].nombres %></td>
+												<td><%= docente[i].apellidos %></td>
+												<td><%= docente[i].correo %></td>
+											 
+											</tr>
+											<% } %>
+											<%= mensaje %>
+									</tbody>
+								  </table>
 							</div>
 						</div>
 					</div>

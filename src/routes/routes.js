@@ -12,8 +12,10 @@ router.get('/', (req, res) => {
     res.render('login');
 });
 
-router.get('/docenteAdd', (req, res) => {
-    res.render('Admin-Docentes');
+router.get('/docenteAdd',async (req, res) => {
+    const docente = await schemaDocente.find();
+
+    res.render('Admin-Docentes',{docente,"mensaje": "" });
 });
 
 router.post('/docenteAdd', (req, res) => {
@@ -62,8 +64,9 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/estudianteAdd', (req, res) => {
-    const estudiante= {}
+router.get('/estudianteAdd',async (req, res) => {
+    
+    const estudiante = await schemaEstudiante.find();
 
     res.render('Admin-estudiantes',{estudiante,"mensaje": "" });
 });
@@ -112,8 +115,10 @@ router.get('/estudianteDelete/:id', async (req, res) => {
 
 /*----------------RUTAS ASIGNAGTURA-----------------------*/
 
-router.get('/asignaturaAdd', (req, res) => {
-    res.render('Admin-asignatura');
+router.get('/asignaturaAdd', async (req, res) => {
+    const asignatura = await schemaAsignatura.find();
+
+    res.render('Admin-asignatura',{asignatura,"mensaje": "" });
 });
 
 router.post('/asignaturaAdd', (req, res) => {
@@ -157,6 +162,13 @@ router.get('/AsignaturaDelete/:id', async (req, res) => {
 });
 
 /*----------------RUTAS GRUPOS-----------------------*/
+router.get('/grupoAdd', async (req, res) => {
+    const docente = await schemaDocente.find();
+    const estudiante = await schemaEstudiante.find();
+    const asignatura = await schemaAsignatura.find();
+
+    res.render('Admin-grupos',{docente, estudiante,asignatura });
+});
 
 router.post('/grupoAdd', (req, res) => {
 
@@ -179,6 +191,11 @@ router.get('/grupoSearch', async (req, res) => {
     const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
 
     res.render('profesores-Mrubrica', { grupo });
+});
+
+router.get('/grupoEdit', (req, res) => {
+    const grupo={}
+    res.render('Admin-Mgrupos#modificarG',{grupo});
 });
 
 router.post('/grupoEdit', async (req, res) => {

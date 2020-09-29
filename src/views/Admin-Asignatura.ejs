@@ -209,6 +209,39 @@
 									</FONT>
 
 								</p>
+								<table class="table table-bordered" style="background-color:white; color:#3A32DB" width="1200" align="center">
+									<thead>
+									  <tr>
+										<th>N°</th>
+										<th>codigo</th>
+										<th>Nombre</th>
+										
+									  </tr>
+									</thead>
+									<tbody>	
+										
+										<%if (mensaje == "") { %>
+											<% for(var i = 0; i < asignatura.length; i++){ %>
+											<tr>
+											  <td><%= i + 1 %></td>
+											  <td><%= asignatura[i].codigoAsignatura %></td>
+											  <td><%= asignatura[i].nombreASignatura %></td>
+											  
+
+											</tr>
+											<% } %>
+											<% } else if(position == -1) { %>
+											<tr>
+												<td><%= i + 1 %></td>
+												<td><%= asignatura[i].codigoAsignatura %></td>
+												<td><%= asignatura[i].nombreASignatura %></td>
+												
+											 
+											</tr>
+											<% } %>
+											<%= mensaje %>
+									</tbody>
+								  </table>
 							</div>
 						</div>
 					</div>

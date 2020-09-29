@@ -105,7 +105,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#modificarG">Modificar Grupos</a>
+							<a class="dropdown-item" href="grupoEdit">Modificar Grupos</a>
 						</div>
 					</li>
 
@@ -157,14 +157,14 @@
 	<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt" id="registroG">
 		<div class="container">
 			<div class="row no-gutters">
-				<div class="col-sm-4 p-4 p-md-5 d-flex align-items-center justify-content-center bg-success">
+				<div class="col-sm-4 p-4 p-md-5 col-lg-5 d-flex align-items-center justify-content-center bg-success">
 					<form action="#" class="appointment-form">
 						<br>
 						<h3 class="mb-3">Registro Grupos</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nro Grupo"
+									<input type="number" class="form-control" placeholder="Nro Grupo"
 									name="numGrupo" required="Ingrese el nro de grupo">
 								</div>
 							</div>
@@ -172,11 +172,15 @@
 								<div class="form-group">
 									<label style="color: white;">Seleccionar asignatura</label>
 
-									<select class="form-control" id="exampleFormControlSelect1" name="asignatura">
-										<option style="background-color: rgb(20, 213, 220);">Trabajo de campo</option>
-										<option style="background-color: rgb(20, 213, 220);">Electiva III</option>
-										<option style="background-color: rgb(20, 213, 220);">Calculo IV</option>
+									<select class="form-control" id="exampleFormControlSelect1" name="docente">
 
+										<% for(var i = 0; i < asignatura.length; i++){ %>
+											<option style="background-color:#52D976" value="<%= asignatura[i].codigoAsignatura  %>"><%= asignatura[i].nombreASignatura %></option>
+
+
+
+										<% } %>
+										
 									</select>
 								</div>
 							</div>
@@ -185,23 +189,41 @@
 									<label style="color: white;">Seleccionar Docente</label>
 
 									<select class="form-control" id="exampleFormControlSelect1" name="docente">
-										<option style="background-color: rgb(20, 213, 220);">Docente 1</option>
-										<option style="background-color: rgb(20, 213, 220);">Docente 2</option>
-										<option style="background-color: rgb(20, 213, 220);">Docente 3</option>
 
+										<% for(var i = 0; i < docente.length; i++){ %>
+											<option style="background-color:#52D976" value="<%= docente[i].codigoDocente  %>"><%= docente[i].nombres %></option>
+
+
+
+										<% } %>
+										
 									</select>
+
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label style="color: white;">Seleccionar estudiante</label>
+									<div class="container">
+										<div class="row">
+									<div class="col" >
+										<select class="form-control" id="exampleFormControlSelect1" name="estudiante">
 
-									<select class="form-control" id="exampleFormControlSelect1" name="estudiantes">
-										<option style="background-color: rgb(20, 213, 220);">Estudiante 1</option>
-										<option style="background-color: rgb(20, 213, 220);">Estudiante 2</option>
-										<option style="background-color: rgb(20, 213, 220);">Calculo IV</option>
+											<% for(var i = 0; i < estudiante.length; i++){ %>
+												<option style="background-color:#52D976" value="<%= estudiante[i].codigoEstudiante  %>"><%= estudiante[i].nombres %></option>
+	
+	
+	
+											<% } %>
+										</select>
+									</div>
 
-									</select>
+									<div class="col" >
+										<a href="" class="btn btn-danger">Añadir</a>
+
+									</div>
+									</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -225,7 +247,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="col-sm-8 wrap-about py-5 ftco-animate img"
+				<div class="col-sm-8 wrap-about py-5 col-lg-7 ftco-animate img"
 					style="background-image: url(/static/images/grupos.jpg);">
 					<div class="row pb-5 pb-md-0">
 						<div class="col-md-12 col-lg-7">
