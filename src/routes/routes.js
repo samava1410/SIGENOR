@@ -178,8 +178,9 @@ router.post('/grupoAdd', async(req, res) => {
     console.log("Est    " + ests[0].estudiante);
 
     ids = [];
+    
     for(var i = 0 ; i < ests.length ; i++){
-        const estudiante = await schemaEstudiante.findOne({codigoEstudiante: ests[0].estudiante});
+        const estudiante = await schemaEstudiante.findOne({codigoEstudiante: ests[i].estudiante});
         ids.push(estudiante._id);
     }
 
@@ -197,23 +198,33 @@ router.post('/grupoAdd', async(req, res) => {
 
 router.get('/grupo', async (req, res) => {
     
-    const grupo = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes');
+    const grupo = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes').populate('codigoDocente').populate('codigoAsignatura');
 
-    console.log("Relacion " + grupo.codigoEstudiantes[0].nombres);
+    console.log("Relacion " + grupo.codigoEstudiantes[2].nombres);
 
-    res.render('temp', { grupo });
+    res.render('ver-Grupo', { grupo , mensaje: ""});
 });
 
-router.get('/grupoSearch', async (req, res) => {
+router.post('/grupoSearch', async (req, res) => {
+    const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo }).populate('codigoEstudiantes').populate('codigoDocente').populate('codigoAsignatura');
+    const docente = await schemaDocente.find();
+    const estudiante = await schemaEstudiante.find();
+    const asignatura = await schemaAsignatura.find();
+    console.log("aqui necesitamos"+ grupo.numGrupo)
+
+    res.render('Admin-Mgrupos', { grupo,docente,estudiante, asignatura , mensaje:""});
+});
+
+router.get('/grupoEdit',async (req, res) => {
+    const grupo = {
+        codigoEstudiantes:[{}]
+    }
+
+    const docente = {};
+    const estudiante = {};
+    const asignatura = {};
     
-    const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
-
-    res.render('profesores-Mrubrica', { grupo });
-});
-
-router.get('/grupoEdit', (req, res) => {
-    const grupo={}
-    res.render('Admin-Mgrupos#modificarG',{grupo});
+    res.render('Admin-Mgrupos',{grupo,docente,estudiante, asignatura, mensaje: ""});
 });
 
 router.post('/grupoEdit', async (req, res) => {

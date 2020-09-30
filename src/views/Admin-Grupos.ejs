@@ -105,7 +105,18 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="grupoEdit">Modificar Grupos</a>
+							<a class="dropdown-item" href="grupoEdit#modificarG">Modificar Grupos</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Usuarios
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#registro">Crear Usuarios</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="">Modificar Usuarios</a>
 						</div>
 					</li>
 
@@ -178,11 +189,11 @@
 								<div class="form-group">
 									<label style="color: white;">Seleccionar asignatura</label>
 
-									<select class="form-control" id="exampleFormControlSelect1" name="docente">
+									<select class="form-control" id="exampleFormControlSelect1" name="codigoAsignatura">
 
 										<% for(var i = 0; i < asignatura.length; i++){ %>
 										<option style="background-color:#52D976"
-											value="<%= asignatura[i].codigoAsignatura  %>">
+											value="<%= asignatura[i]._id  %>">
 											<%= asignatura[i].nombreASignatura %></option>
 
 
@@ -196,11 +207,11 @@
 								<div class="form-group">
 									<label style="color: white;">Seleccionar Docente</label>
 
-									<select class="form-control" id="exampleFormControlSelect1" name="docente">
+									<select class="form-control" id="exampleFormControlSelect1" name="codigoDocente">
 
 										<% for(var i = 0; i < docente.length; i++){ %>
 										<option style="background-color:#52D976"
-											value="<%= docente[i].codigoDocente  %>"><%= docente[i].nombres %></option>
+											value="<%= docente[i]._id  %>"><%= docente[i].nombres %></option>
 
 
 
@@ -248,7 +259,7 @@
 													tex = document.getElementById("selEst").options[document.getElementById("selEst").selectedIndex].value;
 													alert("tex   " + tex);
 													gt.push({"estudiante" : tex});
-													alert("selEst" + gt.estudiante);
+													alert("selEst" + gt[0].estudiante);
 													document.getElementById("estudiantesJS").value = JSON.stringify(gt)
 										
 										
