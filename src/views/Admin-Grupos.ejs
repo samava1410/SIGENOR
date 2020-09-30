@@ -257,6 +257,7 @@
 												function bot() {
 													alert("Jajajajaj");
 													tex = document.getElementById("selEst").options[document.getElementById("selEst").selectedIndex].value;
+													alert("tex   " + tex);
 													gt.push({"estudiante" : tex});
 													alert("selEst" + gt[0].estudiante);
 													document.getElementById("estudiantesJS").value = JSON.stringify(gt)

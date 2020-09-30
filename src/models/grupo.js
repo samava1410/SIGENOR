@@ -10,7 +10,7 @@ const schemaGrupo= new Schema({
 
     codigoDocente: {type: Schema.ObjectId, ref: 'docente' },
 
-    codigoAsignatura: {type: Schema.ObjectId, ref: 'asignatura' },
+    codigoASignatura: {type: Schema.ObjectId, ref: 'asignatura' },
 
     codigoEstudiantes: [{type: Schema.ObjectId, ref: 'estudiante' }],
 
