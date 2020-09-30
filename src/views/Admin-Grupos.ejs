@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="static/css/style.css">
 </head>
 
-<body>
+<body onload="creat()">
 
 	<div class="wrap">
 		<div class="container">
@@ -153,12 +153,12 @@
 
 
 
-	
+
 	<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt" id="registroG">
 		<div class="container">
 			<div class="row no-gutters">
 				<div class="col-sm-4 p-4 p-md-5 col-lg-5 d-flex align-items-center justify-content-center bg-success">
-					<form action="#" class="appointment-form">
+					<form action="/grupoAdd" method="POST" class="appointment-form">
 						<br>
 						<h3 class="mb-3">Registro Grupos</h3>
 						<div class="row">
@@ -168,8 +168,8 @@
 							</div>
 							<div class="col-md-5">
 								<div class="form-group">
-									<input type="number" class="form-control" placeholder="Grupo" value="60"
-									name="numGrupo" required="Ingrese el numero de grupo">
+									<input type="number" class="form-control" placeholder="12" name="numGrupo"
+										required="Ingrese el nro de grupo">
 								</div>
 							</div>
 							
@@ -181,12 +181,14 @@
 									<select class="form-control" id="exampleFormControlSelect1" name="docente">
 
 										<% for(var i = 0; i < asignatura.length; i++){ %>
-											<option style="background-color:#52D976" value="<%= asignatura[i].codigoAsignatura  %>"><%= asignatura[i].nombreASignatura %></option>
+										<option style="background-color:#52D976"
+											value="<%= asignatura[i].codigoAsignatura  %>">
+											<%= asignatura[i].nombreASignatura %></option>
 
 
 
 										<% } %>
-										
+
 									</select>
 								</div>
 							</div>
@@ -197,12 +199,13 @@
 									<select class="form-control" id="exampleFormControlSelect1" name="docente">
 
 										<% for(var i = 0; i < docente.length; i++){ %>
-											<option style="background-color:#52D976" value="<%= docente[i].codigoDocente  %>"><%= docente[i].nombres %></option>
+										<option style="background-color:#52D976"
+											value="<%= docente[i].codigoDocente  %>"><%= docente[i].nombres %></option>
 
 
 
 										<% } %>
-										
+
 									</select>
 
 								</div>
@@ -212,23 +215,58 @@
 									<label style="color: white;">Seleccionar estudiante</label>
 									<div class="container">
 										<div class="row">
-									<div class="col" >
-										<select class="form-control" id="exampleFormControlSelect1" name="estudiante">
+											<div class="col">
+												<select class="form-control" name="estudiante" id="selEst">
 
-											<% for(var i = 0; i < estudiante.length; i++){ %>
-												<option style="background-color:#52D976" value="<%= estudiante[i].codigoEstudiante  %>"><%= estudiante[i].nombres %></option>
-	
-	
-	
-											<% } %>
-										</select>
-									</div>
+													<% for(var i = 0; i < estudiante.length; i++){ %>
+													<option style="background-color:#52D976"
+														value="<%= estudiante[i].codigoEstudiante  %>">
+														<%= estudiante[i].nombres %></option>
 
-									<div class="col" >
-										<a class="btn btn-danger">Añadir</a>
 
-									</div>
-									</div>
+
+													<% } %>
+												</select>
+											</div>
+											<input id="estudiantesJS" name="tempEsta" type="hidden">
+
+											<br><br><br>
+											<script>
+
+												var gt;
+										
+												function creat(){
+													gt =[];
+												}
+										
+												function verJs(){
+													alert("JS " + JSON.stringify(gt))
+												}
+										
+												function bot() {
+													alert("Jajajajaj");
+													tex = document.getElementById("selEst").options[document.getElementById("selEst").selectedIndex].value;
+													gt.push({"estudiante" : tex});
+													alert("selEst" + gt.estudiante);
+													document.getElementById("estudiantesJS").value = JSON.stringify(gt)
+										
+										
+												}
+											</script>
+										
+
+
+											<div class="col">
+
+												
+												
+												<button class="btn btn-danger" onclick="bot()" type="button">Envaa</button>
+												
+
+												
+
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -238,8 +276,8 @@
 							</div>
 							<div class="col-md-5">
 								<div class="form-group">
-									<input type="number" class="form-control" placeholder="cupos" value="30"
-									name="cantCupos" required="Ingrese la cantidad de cupos">
+									<input type="number" class="form-control" placeholder="cupos" value="10"
+										name="cantCupos" required="Ingrese la cantidad de cupos">
 								</div>
 							</div>
 
@@ -280,39 +318,43 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 
 	<footer class="ftco-footer ftco-no-pb ftco-section">
-		
+
 		<div class="container">
 			<div class="row mb-4">
 				<div class="col-md-6 col-lg-7">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2" style="text-align: center;">Desarrolladores</h2>
 						<ul class="list-unstyled open-hours">
-							<li class="d-flex"><span>José Manuel Córdoba Sandoval</span><span>jose.cordoba01@uptc.edu.co</span></li>
-							<li class="d-flex"><span>Santiago Mariño Vasquéz</span><span>santiago.marino@uptc.edu.co</span></li>
-							<li class="d-flex"><span>Holman Orlando Ricaurte Rey</span><span>holman.ricaurte01@uptc.edu.co</span></li>
-							
+							<li class="d-flex"><span>José Manuel Córdoba
+									Sandoval</span><span>jose.cordoba01@uptc.edu.co</span></li>
+							<li class="d-flex"><span>Santiago Mariño
+									Vasquéz</span><span>santiago.marino@uptc.edu.co</span></li>
+							<li class="d-flex"><span>Holman Orlando Ricaurte
+									Rey</span><span>holman.ricaurte01@uptc.edu.co</span></li>
+
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2" style="text-align: center;">SIGENOR</h2>
-						<div class="text-center">						<img src="/static/images/logo2.png" class="img-fluid" alt="Responsive image">
+						<div class="text-center"> <img src="/static/images/logo2.png" class="img-fluid"
+								alt="Responsive image">
 						</div>
 
 						<p>
 							Aplicacion para la gestión de notas por medio de rubricas, creada por y para estudiantes.
 						</p>
-						
+
 					</div>
 				</div>
 
 			</div>
-		
+
 			<div class="container-fluid px-0 bg-primary py-3">
 				<div class="row no-gutters">
 					<div class="col-md-12 text-center">
@@ -353,6 +395,9 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="static/js/google-map.js"></script>
 	<script src="static/js/main.js"></script>
+
+
+
 
 </body>
 
