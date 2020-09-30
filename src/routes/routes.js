@@ -211,8 +211,10 @@ router.post('/grupoSearch', async (req, res) => {
     const estudiante = await schemaEstudiante.find();
     const asignatura = await schemaAsignatura.find();
     console.log("aqui necesitamos"+ grupo.numGrupo)
+    const tempEsta = JSON.stringify(grupo.codigoEstudiantes);
+    console.log("Tempppp " + tempEsta);
 
-    res.render('Admin-Mgrupos', { grupo,docente,estudiante, asignatura , mensaje:""});
+    res.render('Admin-Mgrupos', { grupo,docente,estudiante, asignatura , mensaje:"", tempEsta, carga: 1});
 });
 
 router.get('/grupoEdit',async (req, res) => {
@@ -224,7 +226,7 @@ router.get('/grupoEdit',async (req, res) => {
     const estudiante = {};
     const asignatura = {};
     
-    res.render('Admin-Mgrupos',{grupo,docente,estudiante, asignatura, mensaje: ""});
+    res.render('Admin-Mgrupos',{grupo,docente,estudiante, asignatura, mensaje: "", carga: 0, tempEsta: {}});
 });
 
 router.post('/grupoEdit', async (req, res) => {

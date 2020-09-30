@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="static/css/style.css">
 </head>
 
-<body onload="creat()">
+<body onload="">
 
 	<div class="wrap">
 		<div class="container">
@@ -201,8 +201,8 @@
 								</div>
 								<div class="col-md-6">
 
-										<input type="text" class="form-control" name="numGrupo"
-											value=" <%= grupo.numGrupo  %>">
+									<input type="text" class="form-control" name="numGrupo"
+										value=" <%= grupo.numGrupo  %>">
 
 								</div>
 								<br>
@@ -212,7 +212,7 @@
 
 								</div>
 								<div class="col-md-6">
-									<br>	
+									<br>
 									<div class="form-group">
 
 										<select class="form-control" id="exampleFormControlSelect1"
@@ -271,14 +271,18 @@
 										</select>
 									</div>
 								</div>
-								<input id="estudiantesJS" name="tempEsta" type="hidden" value="<%= grupo.tempEsta  %>">
+								<input id="estudiantesJS" name="tempEsta" type="hidden" value="<%= tempEsta  %>">
+								<input id="mensaTemp" name="tempEsta" type="hidden" value="<%= grupo.carga %>">
 
 								<script>
 
 									var gt;
 
 									function creat() {
-										gt = JSON.parse(document.getElementById("estudiantesJS").value);
+										if (document.getElementById("mensaTemp").value == 1) {
+											alert("JSON AAA " + document.getElementById("estudiantesJS").value)
+											gt = JSON.parse(document.getElementById("estudiantesJS").value);
+										}
 									}
 
 									function verJs() {
@@ -295,10 +299,13 @@
 
 									}
 									function eliminar() {
+										alert("JSON AAA " + document.getElementById("estudiantesJS").value)
+										gt = JSON.parse(document.getElementById("estudiantesJS").value);
+
 										alert("Se eliminó");
 										tex = document.getElementById("selEst").options[document.getElementById("selEst").selectedIndex].value;
-										index=gt.indexOf({"estudiante":tex})
-										gt.splice(index,1);
+										index = gt.indexOf({ "estudiante": tex })
+										gt.splice(index, 1);
 										document.getElementById("estudiantesJS").value = JSON.stringify(gt)
 										alert("Cantidad estudiantes" + gt.length);
 
@@ -357,7 +364,7 @@
 								</div>
 								<div class="col-md-3">
 								</div>
-								
+
 								<div class="col-md-6">
 									<br>
 									<label style="color: white;">Nro Cupos</label>
