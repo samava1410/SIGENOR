@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="static/css/style.css">
 </head>
 
-<body>
+<body onload="creat()">
 
 	<div class="wrap">
 		<div class="container">
@@ -103,9 +103,20 @@
 							Grupos
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#registroG">Crear Grupos</a>
+							<a class="dropdown-item" href="grupoAdd#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#modificarG">Modificar Grupos</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Usuarios
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#registro">Crear Usuarios</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="">Modificar Usuarios</a>
 						</div>
 					</li>
 
@@ -184,22 +195,24 @@
 							</div>
 							<h3 class="col-mb-4	">Modificar GRUPOS</h3>
 							<div class="row">
-								<div class="col-md-2">
-								</div>
-								<div class="col-md-8">
-									<div class="form-group">
-
-										<input type="text" class="form-control" name="numGrupo"
-											value=" <%= grupo.numGrupo  %>">
-									</div>
-
-								</div>
 								<div class="col-md-4">
-									<label style="color: white;">Seleccionar asignatura</label>
+									<label style="color: white;">Numero de grupo</label>
 
 								</div>
 								<div class="col-md-6">
 
+										<input type="text" class="form-control" name="numGrupo"
+											value=" <%= grupo.numGrupo  %>">
+
+								</div>
+								<br>
+								<div class="col-md-4">
+									<br>
+									<label style="color: white;">Seleccionar asignatura</label>
+
+								</div>
+								<div class="col-md-6">
+									<br>	
 									<div class="form-group">
 
 										<select class="form-control" id="exampleFormControlSelect1"
@@ -282,11 +295,14 @@
 
 									}
 									function eliminar() {
-										alert("Jajajajaj");
+										alert("Se eliminó");
 										tex = document.getElementById("selEst").options[document.getElementById("selEst").selectedIndex].value;
-										gt.push({ "estudiante": tex });
-										alert("selEst" + gt[0].estudiante);
+										index=gt.indexOf({"estudiante":tex})
+										gt.splice(index,1);
 										document.getElementById("estudiantesJS").value = JSON.stringify(gt)
+										alert("Cantidad estudiantes" + gt.length);
+
+
 
 
 									}
@@ -336,7 +352,7 @@
 									<button class="btn btn-danger" onclick="bot()" type="button">Agregar</button>
 								</div>
 								<div class="col-md-2">
-									<button class="btn btn-danger" onclick="bot()" type="button">Eliminar</button>
+									<button class="btn btn-danger" onclick="eliminar()" type="button">Eliminar</button>
 
 								</div>
 								<div class="col-md-3">

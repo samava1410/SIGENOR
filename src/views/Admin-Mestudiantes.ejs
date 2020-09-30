@@ -100,9 +100,20 @@
 							Grupos
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="grupo#registroG">Crear Grupos</a>
+							<a class="dropdown-item" href="grupoAdd#registroG">Crear Grupos</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="grupo#modificarG">Modificar Grupos</a>
+							<a class="dropdown-item" href="grupoEdit#modificarG">Modificar Grupos</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Usuarios
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#registro">Crear Usuarios</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="">Modificar Usuarios</a>
 						</div>
 					</li>
 
@@ -183,18 +194,7 @@
 								<div class="col-5">
 								</div>
 								<h3 class="col-mb-7	">Modificar Estudiantes</h3>
-								<%if(! estudiante.nombres){%>
-									<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-										>	
-									<%}
-									else{%>
-
-									<input type="text" class="form-control" placeholder="Nombres" name="nombres"
-										value=" <%= estudiante.nombres  %> ">
-									<%}%>	
-								<input id="" name="codigoEstudiante" type="hidden"
-									value="<%= estudiante.codigoEstudiante  %>">
-
+								
 
 								<div class="col-4">
 								</div>
