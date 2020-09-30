@@ -348,4 +348,14 @@ router.get('/grupoDelete', async (req, res) => {
     res.redirect('/');
 });
 
+
+router.get('/docenteEst', async (req, res) => {
+
+    const estudiante = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes').populate('codigoDocente').populate('codigoASignatura');
+
+ 
+
+    res.render('profesores', { estudiante, mensaje: "" });
+});
+
 module.exports = router;

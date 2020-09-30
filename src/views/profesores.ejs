@@ -121,28 +121,42 @@
 							<div class="col-sm-1">
 							</div>
 							<div class="col-sm-8 col-lg-8">
-								<div class="heading-section ">
-									<br><br>
-									<div class="pl-lg-3 ml-md-5" style="text-align: center;">
-										<span class="subheading">Información</span>
-										<h2 class="mb-4" style="color:#6CF296;">Tú Perfil</h2>
-									</div>
-								</div>
-								<div class="pl-lg-3 ml-md-5">
-									<div class="text-center">
-										<img src="/static/images/iconoPerfil.jpg" class="rounded .img-fluid. max-width: 100% height: auto;" alt="...">
-									  </div>
-								</div>
-								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL NOMBRE</H1>
-								</div>
-								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL APELLIDO</H1>
-								</div>
-								<BR>
-								<div class="pl-lg-3 ml-md-5">
-									<H1 style="text-align: center;">ACA VA EL CORREO</H1>
-								</div>
+								<table class="table table-bordered" style="background-color:burlywood; color: darkblue" width="1200" align="center">
+									<thead>
+									  <tr>
+										<th>N°</th>
+										<th>codigo</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Email</th>
+									  </tr>
+									</thead>
+									<tbody>	
+										
+										<%if (mensaje == "") { %>
+											<% for(var i = 0; i < estudiante.length; i++){ %>
+											<tr>
+											  <td><%= i + 1 %></td>
+											  <td><%= estudiante[i].codigoEstudiante %></td>
+											  <td><%= estudiante[i].nombres %></td>
+											  <td><%= estudiante[i].apellidos %></td>
+											  <td><%= estudiante[i].correo %></td>
+
+											</tr>
+											<% } %>
+											<% } else if(position == -1) { %>
+											<tr>
+												<td><%= i + 1 %></td>
+												<td><%= estudiante[i].codigoEstudiante %></td>
+												<td><%= estudiante[i].nombres %></td>
+												<td><%= estudiante[i].apellidos %></td>
+												<td><%= estudiante[i].correo %></td>
+											 
+											</tr>
+											<% } %>
+											<%= mensaje %>
+									</tbody>
+								  </table>
 
 							</div>
 							<div class="col-sm">
