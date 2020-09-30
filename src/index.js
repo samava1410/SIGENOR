@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan')
+const session = require('express-session');
 
 //Conexion con la BD Mongo
 mongoose.connect('mongodb://localhost/SIGENOR', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -15,6 +16,8 @@ mongoose.set('useCreateIndex', true);
 app.use('/static', express.static(__dirname + '/static'));
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));//MIDDLEWARE HTTP
+app.use(session({secret: '123456', resave: true, saveUninitialized: true}));
+
 
 //Configuracion de las vistas
 app.set('views', __dirname + '/views');

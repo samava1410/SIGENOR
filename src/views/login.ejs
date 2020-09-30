@@ -35,7 +35,7 @@
 	
 	<div class="container-login100" style="background-image: url(/static/images/segundofondo.jpg);">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" method="POST" action="/login">
 				<img src="/static/images/logo.png" class="img-fluid" alt="Responsive image">
 				<span class="login100-form-title p-b-37">
 					Iniciar Sesión
@@ -48,15 +48,15 @@
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="contraseña" placeholder="Contraseña">
+					<input class="input100" type="password" name="contrasena" placeholder="Contraseña">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-25">
 					
-					<select class="form-control" id="exampleFormControlSelect1" name="usuario">
-						<option style="background-color:burlywood" value="Administrador">Administrador</option>
-							<option style="background-color:burlywood" value="Profesor">Profesor</option>
-								<option style="background-color:burlywood" value="Estudiante">Estudiante</option>
+					<select class="form-control" id="exampleFormControlSelect1" name="tipoUsuario">
+						<option style="background-color:burlywood" value="1">Administrador</option>
+							<option style="background-color:burlywood" value="2">Profesor</option>
+								<option style="background-color:burlywood" value="3">Estudiante</option>
 
 					</select>
 				</div>
@@ -65,7 +65,7 @@
 
 				<div class="container-login100-form-btn">
 					<br><br>
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" type="submit">
 						Ingresar
 					</button>
 				</div>

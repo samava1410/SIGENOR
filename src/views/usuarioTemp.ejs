@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="login100-form validate-form" method="POST" action="addUs">
+        <img src="/static/images/logo.png" class="img-fluid" alt="Responsive image">
+        <br><br>
+        <span class="login100-form-title p-b-37">
+            Agregar Usuario
+        </span>
+
+        
+        <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+            <input class="input100" type="text" name="correo" placeholder="Correo">
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+            <input class="input100" type="password" name="contrasena" placeholder="Contraseña">
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-25">
+            
+            <select class="form-control" id="exampleFormControlSelect1" name="tipoUsuario">
+                <option style="background-color:burlywood" value="1">Administrador</option>
+                    <option style="background-color:burlywood" value="2">Profesor</option>
+                        <option style="background-color:burlywood" value="3">Estudiante</option>
+
+            </select>
+        </div>
+
+
+
+        <div class="container-login100-form-btn">
+            <br><br>
+            <button class="login100-form-btn">
+                Ingresar
+            </button>
+        </div>
+    
+
+        
+    </form>
+</body>
+</html>
