@@ -170,20 +170,38 @@ router.get('/grupoAdd', async (req, res) => {
     res.render('Admin-grupos',{docente, estudiante,asignatura });
 });
 
-router.post('/grupoAdd', (req, res) => {
+router.post('/grupoAdd', async(req, res) => {
 
     //req.body.estudiante = estudiantes
+    console.log("entro a la req " + req.body.tempEsta);
+    ests = JSON.parse(req.body.tempEsta)
+    console.log("Est    " + ests[0].estudiante);
+
+    ids = [];
+    for(var i = 0 ; i < ests.length ; i++){
+        const estudiante = await schemaEstudiante.findOne({codigoEstudiante: ests[0].estudiante});
+        ids.push(estudiante._id);
+    }
+
+    console.log("IDS ENCONTRADOS : " + ids[0]);
+
+    req.body.codigoEstudiantes = ids;
 
     const grupo = new schemaGrupo(req.body);
     grupo.save();
+
+    /*const grupo = new schemaGrupo(req.body);
+    grupo.save();*/
     res.redirect('/');
 });
 
 router.get('/grupo', async (req, res) => {
     
-    const grupo = await schemaGrupo.findOne({ numGrupo: "60" });
+    const grupo = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes');
 
-    res.render('Admin-grupos', { grupo });
+    console.log("Relacion " + grupo.codigoEstudiantes[0].nombres);
+
+    res.render('temp', { grupo });
 });
 
 router.get('/grupoSearch', async (req, res) => {

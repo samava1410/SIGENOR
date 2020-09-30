@@ -12,7 +12,7 @@ const schemaGrupo= new Schema({
 
     codigoAsignatura: {type: Schema.ObjectId, ref: 'asignatura' },
 
-    codigoEstudiante: {type: Schema.ObjectId, ref: 'estudiante' },
+    codigoEstudiantes: [{type: Schema.ObjectId, ref: 'estudiante' }],
 
     cantCupos: {
         type: Number,
