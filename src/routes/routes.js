@@ -6,6 +6,9 @@ const schemaDocente = require('../models/docente');
 const schemaAsignatura = require('../models/asignatura');
 const schemaGrupo = require('../models/grupo');
 const docente = require('../models/docente');
+const mongoose = require('mongoose'); 
+
+
 
 /*RUTAS DOCENTE*/
 router.get('/', (req, res) => {
@@ -173,9 +176,7 @@ router.get('/grupoAdd', async (req, res) => {
 router.post('/grupoAdd', async(req, res) => {
 
     //req.body.estudiante = estudiantes
-    console.log("entro a la req " + req.body.tempEsta);
     ests = JSON.parse(req.body.tempEsta)
-    console.log("Est    " + ests[0].estudiante);
 
     ids = [];
     
@@ -184,7 +185,6 @@ router.post('/grupoAdd', async(req, res) => {
         ids.push(estudiante._id);
     }
 
-    console.log("IDS ENCONTRADOS : " + ids[0]);
 
     req.body.codigoEstudiantes = ids;
 
@@ -198,9 +198,10 @@ router.post('/grupoAdd', async(req, res) => {
 
 router.get('/grupo', async (req, res) => {
     
-    const grupo = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes').populate('codigoDocente').populate('codigoAsignatura');
+    const grupo = await schemaGrupo.findOne({ numGrupo: "12" }).populate('codigoEstudiantes').populate('codigoDocente').populate('codigoASignatura');
 
-    console.log("Relacion " + grupo.codigoEstudiantes[2].nombres);
+    console.log("PROBLEMA NULL   ");
+    console.log(grupo);
 
     res.render('ver-Grupo', { grupo , mensaje: ""});
 });
@@ -210,11 +211,10 @@ router.post('/grupoSearch', async (req, res) => {
     const docente = await schemaDocente.find();
     const estudiante = await schemaEstudiante.find();
     const asignatura = await schemaAsignatura.find();
-    console.log("aqui necesitamos"+ grupo.numGrupo)
     const tempEsta = JSON.stringify(grupo.codigoEstudiantes);
-    console.log("Tempppp " + tempEsta);
+    const findEst = JSON.stringify(estudiante);
 
-    res.render('Admin-Mgrupos', { grupo,docente,estudiante, asignatura , mensaje:"", tempEsta, carga: 1});
+    res.render('Admin-Mgrupos', { grupo,docente,estudiante, asignatura , mensaje:"", tempEsta, findEst});
 });
 
 router.get('/grupoEdit',async (req, res) => {
@@ -226,14 +226,39 @@ router.get('/grupoEdit',async (req, res) => {
     const estudiante = {};
     const asignatura = {};
     
-    res.render('Admin-Mgrupos',{grupo,docente,estudiante, asignatura, mensaje: "", carga: 0, tempEsta: {}});
+    res.render('Admin-Mgrupos',{grupo,docente,estudiante, asignatura, mensaje: "", findEst: {}, tempEsta: {}});
 });
 
 router.post('/grupoEdit', async (req, res) => {
-    
-    const grupo = await schemaGrupo.findOne({ numGrupo: req.body.numGrupo });
+   
+    codigoEstudiantesTemp = JSON.parse(req.body.tempEsta);
 
-    await schemaGrupo.update({ numGrupo: req.body.numGrupo }, req.body);
+    ids = [];
+    
+    for(var i = 0 ; i < codigoEstudiantesTemp.length ; i++){
+        const estudiante = await schemaEstudiante.findOne({codigoEstudiante: codigoEstudiantesTemp[i].codigoEstudiante});
+        ids.push(mongoose.Types.ObjectId(estudiante._id));
+    }
+
+   
+
+    req.body.codigoEstudiantes = ids;
+/*
+    //await schemaEstudiante.update({ codigoEstudiante: req.body.codigoEstudiante }, req.body);
+*/
+   
+    cantIntero = parseInt(req.body.cantCupos)
+    req.body.cantCupos = cantIntero;
+    
+    req.body.codigoDocente = mongoose.Types.ObjectId(req.body.codigoDocente);
+    req.body.codigoASignatura = mongoose.Types.ObjectId(req.body.codigoASignatura);
+    
+    console.log(req.body);
+
+    await schemaGrupo.update({ numGrupo: "12" }, req.body);
+
+
+    //await schemaGrupo.update({ numGrupo: req.body.numGrupo }, {$push: { codigoEstudiantes: { $each: req.body.codigoEstudiantes}, codigoDocente: { $each: req.body.codigoDocente}, codigoASignatura: { $each: req.body.codigoAsignatura} } });
     res.redirect('/grupo');
 });
 
